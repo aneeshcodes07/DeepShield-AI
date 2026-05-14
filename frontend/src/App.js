@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./App.css";
 
 function App() {
   const [result, setResult] = useState("");
@@ -20,26 +21,27 @@ function App() {
   };
 
   return (
-    <div
-      style={{
-        textAlign: "center",
-        marginTop: "100px",
-        fontFamily: "Arial"
-      }}
-    >
-      <h1>DeepShield AI</h1>
+    <div className="container">
+      <h1 className="title">DeepShield AI</h1>
 
-      <p>AI Powered Deepfake Detection System</p>
+      <p className="subtitle">
+        AI Powered Deepfake Detection System
+      </p>
 
-      <input type="file" />
+      <div className="upload-box">
+        <input type="file" />
+      </div>
 
-      <br /><br />
-
-      <button onClick={handleDetect}>
+      <button
+        className="detect-btn"
+        onClick={handleDetect}
+      >
         Detect Deepfake
       </button>
 
-      <h2>{result}</h2>
+      <div className="result">
+        {result}
+      </div>
     </div>
   );
 }
