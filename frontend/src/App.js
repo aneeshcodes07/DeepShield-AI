@@ -12,7 +12,7 @@ function App() {
     setResult("");
 
     const response = await axios.post(
-      "http://127.0.0.1:5000/predict"
+      https://deepshield-ai-k0uw.onrender.com/predict
     );
 
     setTimeout(() => {
