@@ -4,21 +4,30 @@ import "./App.css";
 
 function App() {
   const [result, setResult] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleDetect = async () => {
-    try {
-      const response = await axios.post(
-        "http://127.0.0.1:5000/predict"
-      );
+  try {
+    setLoading(true);
+    setResult("");
 
+    const response = await axios.post(
+      "http://127.0.0.1:5000/predict"
+    );
+
+    setTimeout(() => {
       setResult(
         `${response.data.prediction} (${response.data.confidence})`
       );
-    } catch (error) {
-      console.error(error);
-      setResult("Backend connection failed");
-    }
-  };
+      setLoading(false);
+    }, 2000);
+
+  } catch (error) {
+    console.error(error);
+    setResult("Backend connection failed");
+    setLoading(false);
+  }
+};
 
   return (
     <div className="container">
@@ -29,8 +38,11 @@ function App() {
       </p>
 
       <div className="upload-box">
-        <input type="file" />
-      </div>
+  <label className="custom-upload">
+    Upload Image or Video
+    <input type="file" hidden />
+  </label>
+</div>
 
       <button
         className="detect-btn"
@@ -40,7 +52,7 @@ function App() {
       </button>
 
       <div className="result">
-        {result}
+      {loading ? "Analyzing Media..." : result}
       </div>
     </div>
   );
