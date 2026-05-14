@@ -15,6 +15,40 @@ body {
   font-size: 50px;
   color: #ff3c3c;
   margin-bottom: 10px;
+<<<<<<< HEAD
+=======
+}
+
+.subtitle {
+  font-size: 20px;
+  color: #cfcfcf;
+  margin-bottom: 40px;
+}
+
+.upload-box {
+  margin-bottom: 30px;
+}
+
+.detect-btn {
+  background-color: #ff3c3c;
+  border: none;
+  padding: 15px 30px;
+  color: white;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.detect-btn:hover {
+  background-color: #ff1f1f;
+}
+
+.result {
+  margin-top: 30px;
+  font-size: 28px;
+  color: #00ff99;
+
 }
 
 .subtitle {
